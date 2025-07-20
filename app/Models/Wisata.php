@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Wisata extends Model
 {
-    protected $fillable = ['name', 'slug', 'description', 'address', 'latitude', 'longtitude'];
+    protected $fillable = ['category_id' ,'name', 'slug', 'description', 'address', 'latitude', 'longtitude'];
 }

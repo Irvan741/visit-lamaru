@@ -27,8 +27,8 @@ class CategoryController extends Controller
         return redirect('/admin/category');
     }
 
-    public function edit(){
-        $category = Category::get();
+    public function edit($id){
+        $category = Category::findOrFail($id);
         return view('admin.category.edit', compact('category'));
     }
 
