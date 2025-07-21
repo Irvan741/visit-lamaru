@@ -3,11 +3,11 @@
 @section('content')
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h4>Daftar Fasilitas</h4>
-        <a href="{{ url('/admin/facility/create') }}" class="btn btn-primary">+ Tambah Fasilitas</a>
+        <h4>Daftar Fasilitas: {{$datas->name}}</h4>
+        <a href="{{ url('/admin/wisata/'.$datas->id.'/fasilitas/create') }}" class="btn btn-primary">+ Tambah Fasilitas</a>
     </div>
 
-    @if($datas->isEmpty())
+    @if($datas->get()->isEmpty())
         <div class="alert alert-info">Belum ada fasilitas.</div>
     @else
         <div class="table-responsive">
@@ -23,9 +23,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($datas as $index => $facility)
+                    @foreach($datas->facilities as $facility)
+                        
                         <tr>
-                            <td>{{ $index + 1 }}</td>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $facility->name }}</td>
                             <td>
                                 @if($facility->image_path)

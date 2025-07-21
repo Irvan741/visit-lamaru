@@ -43,14 +43,14 @@ Route::prefix('admin/category')->group(function () {
     Route::put('/{id}/update', [CategoryController::class, 'update'])->name('admin.category.update');
     Route::delete('/{id}/delete', [CategoryController::class, 'delete'])->name('admin.category.destroy');
 });
-Route::prefix('admin/fasilitas')->group(function(){
-    Route::get('/', [FacilityController::class, 'index'])->name('admin.fasilitas.index');
-    Route::get('/create', [FacilityController::class, 'create'])->name('admin.fasilitas.create');
-    Route::post('/store', [FacilityController::class, 'store'])->name('admin.fasilitas.store');
-    Route::get('/{id}/edit', [FacilityController::class, 'edit'])->name('admin.fasilitas.edit');
-    Route::put('/{id}/update', [FacilityController::class, 'update'])->name('admin.fasilitas.update');
-    Route::delete('/{id}/delete', [FacilityController::class, 'delete'])->name('admin.fasilitas.destroy');
-});
+// Route::prefix('admin/fasilitas')->group(function(){
+//     Route::get('/', [FacilityController::class, 'index'])->name('admin.fasilitas.index');
+//     Route::get('/create', [FacilityController::class, 'create'])->name('admin.fasilitas.create');
+//     Route::post('/store', [FacilityController::class, 'store'])->name('admin.fasilitas.store');
+//     Route::get('/{id}/edit', [FacilityController::class, 'edit'])->name('admin.fasilitas.edit');
+//     Route::put('/{id}/update', [FacilityController::class, 'update'])->name('admin.fasilitas.update');
+//     Route::delete('/{id}/delete', [FacilityController::class, 'delete'])->name('admin.fasilitas.destroy');
+// });
 
 Route::prefix('admin/wisata')->group(function () {
     Route::get('/', [WisataController::class, 'index'])->name('admin.wisata.index');
@@ -60,11 +60,11 @@ Route::prefix('admin/wisata')->group(function () {
     Route::put('/{id}/update', [WisataController::class, 'update'])->name('admin.wisata.update');
     Route::delete('/{id}/delete', [WisataController::class, 'delete'])->name('admin.wisata.destroy');
 
-    Route::get('/{id}/fasilitas', [WisataFacilityController::class, 'index'])->name('admin.wisata.facility.index');
-    Route::get('/{id}/fasilitas/create', [WisataFacilityController::class, 'create'])->name('admin.wisata.facility.create');
-    Route::post('/{id}/fasilitas/store', [WisataFacilityController::class, 'store'])->name('admin.wisata.facility.store');
-    Route::get('/{id}/fasilitas/{idFasilitas}/edit', [WisataFacilityController::class, 'edit'])->name('admin.wisata.facility.edit');
-    Route::put('/{id}/fasilitas/{idFasilitas}/update', [WisataFacilityController::class, 'update'])->name('admin.wisata.facility.update');
-    Route::delete('/{id}/fasilitas/{idFasilitas}/delete', [WisataFacilityController::class, 'delete'])->name('admin.wisata.facility.destroy');
+    Route::get('/{id}/fasilitas', [FacilityController::class, 'index'])->name('admin.wisata.facility.index');
+    Route::get('/{id}/fasilitas/create', [FacilityController::class, 'create'])->name('admin.wisata.facility.create');
+    Route::post('/{id}/fasilitas/store', [FacilityController::class, 'store'])->name('admin.wisata.facility.store');
+    Route::get('/{id}/fasilitas/{idFasilitas}/edit', [FacilityController::class, 'edit'])->name('admin.wisata.facility.edit');
+    Route::put('/{id}/fasilitas/{idFasilitas}/update', [FacilityController::class, 'update'])->name('admin.wisata.facility.update');
+    Route::delete('/{id}/fasilitas/{idFasilitas}/delete', [FacilityController::class, 'delete'])->name('admin.wisata.facility.destroy');
 });
 
