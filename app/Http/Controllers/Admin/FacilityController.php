@@ -8,7 +8,7 @@ use App\Models\Facility;
 
 class FacilityController extends Controller
 {
-    public function index(){
+    public function index($id){
         $datas = Facility::get();
         return view('admin.facility.index', compact('datas'));
     }
@@ -20,8 +20,9 @@ class FacilityController extends Controller
     public function store(Request $request){
         Facility::create([
             'wisata_id' => $request->wisata_id,
+            'name' => $request->name,
             'image_path' => $request->image_path,
-            'caption' => $request->caption
+            'caption' => $request->caption,
         ]);
 
         return redirect('/admin/facility');
@@ -36,6 +37,7 @@ class FacilityController extends Controller
         $data = Facility::findOrFail($id);
         $data->update([
             'wisata_id' => $request->wisata_id,
+            'name', => $request->name,
             'image_path' => $request->image_path,
             'caption' => $request->caption
         ]);
